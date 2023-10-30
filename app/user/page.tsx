@@ -1,8 +1,19 @@
 import React from 'react'
 
-const UserPage = () => {
+interface User {
+    id: number;
+    name: string
+}
+
+const UserPage = async () => {
+    const resp = await fetch("https://jsonplaceholder.typicode.com/users");
+    const Users: User[] = await resp.json();
+
     return (
-        <div>UserPage</div>
+        <>
+            <h1>UserPage</h1>
+            <ol>{Users.map(user => <li key={user.id}>{user.name}</li>)}</ol>
+        </>
     )
 }
 
