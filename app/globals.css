@@ -16,7 +16,3 @@ body {
   color: var(--foreground-rgb);
   padding: 1rem;
 }
-
-h1{
-  font-weight: bolder;
-}
