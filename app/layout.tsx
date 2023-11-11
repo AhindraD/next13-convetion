@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="retro">
       <body className={inter.className}>
-        <div className="flex-col">
+        <div className="flex flex-col gap-4">
           <NavBar />
           <main className='p-4'>{children}</main>
         </div>
