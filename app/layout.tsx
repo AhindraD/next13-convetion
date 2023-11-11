@@ -28,7 +28,7 @@ export default function RootLayout({
           //fallbach to loader at first, gets data then streames the children
           }
           <Suspense fallback={<Loading />}>
-            <main className='p-4'>{children}</main>
+            <main className='px-12'>{children}</main>
           </Suspense>
         </div>
       </body>
