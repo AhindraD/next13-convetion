@@ -15,4 +15,5 @@
 body {
   color: var(--foreground-rgb);
   padding: 1rem;
+  margin: 0;
 }

@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="retro">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex-col">
+          <nav className='bg-yellow-500 rounded-md p-2 text-2xl font-semibold text-pink-600'>
+            <ul className='flex justify-evenly rounded-full'>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/user">User</Link>
+              </li>
+              <li>
+                <Link href="/admin">Admin</Link>
+              </li>
+            </ul>
+          </nav>
+          <div>{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
