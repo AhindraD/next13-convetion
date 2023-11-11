@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import NavBar from './NavBar'
+import { Suspense } from 'react'
+import Loading from './Loading'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +23,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col gap-4">
           <NavBar />
-          <main className='p-4'>{children}</main>
+          {
+          //suspense feature
+          //fallbach to loader at first, gets data then streames the children
+          }
+          <Suspense fallback={<Loading />}>
+            <main className='p-4'>{children}</main>
+          </Suspense>
         </div>
       </body>
     </html>
