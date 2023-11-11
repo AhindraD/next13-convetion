@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdminHomePage = () => {
     return (
-        <div className='card-title'>Admin HomePage</div>
+        <h1>Admin HomePage</h1>
     )
 }
 
