@@ -1,15 +1,17 @@
+import { notFound } from 'next/navigation';
 import React from 'react'
 
 interface Props {
     params: {
-        id: string;
+        id: number;
     }
 }
 const UserDetails = ({ params: { id } }: Props) => {
+    if (id > 11) notFound();
     return (
-        <div>
+        <h1>
             UserDetails {id}
-        </div>
+        </h1>
     )
 }
 
