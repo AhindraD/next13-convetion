@@ -11,5 +11,5 @@ export function GET(request: NextRequest, { params: { id } }: Props) {
     }
     return NextResponse.json({
         id, name: 'Eebbe'
-    })
+    }, { status: 200 })
 }
