@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import userSchema from "../schema";
 
 interface Props {
     params: {
@@ -20,8 +21,10 @@ export function GET(request: NextRequest, { params: { id } }: Props) {
 //PATCH  -->  partial update/ some properties update
 export async function PUT(request: NextRequest, { params: { id } }: Props) {
     const body = await request.json();
-    if (!body.name) {
-        return NextResponse.json({ error: "Name is required" }, { status: 400 })
+    //Validation via zod package
+    const validation = userSchema.safeParse(body);
+    if (!validation.success) {
+        return NextResponse.json({ error: validation.error.errors }, { status: 400 })
     }
     //simulate user doesn't exist
     if (id > 9) {
@@ -31,10 +34,10 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
 }
 
 
-export async function DELETE(request:NextRequest,{params:{id}}:Props){
+export async function DELETE(request: NextRequest, { params: { id } }: Props) {
     //simulate user doesn't exist
-    if(id>9){
-        return NextResponse.json({error:"user out of scope"},{status:404})
+    if (id > 9) {
+        return NextResponse.json({ error: "user out of scope" }, { status: 404 })
     }
-    return NextResponse.json({message:`Deleted user with id{id}`},{status:200})
+    return NextResponse.json({ message: `Deleted user with id{id}` }, { status: 200 })
 }
