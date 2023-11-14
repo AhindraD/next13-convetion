@@ -10,13 +10,13 @@ export function GET(request: NextRequest) {
             id: 2,
             name: 'Jane Smith'
         }
-    ],{status:200})
+    ], { status: 200 })
 }
 
 
 export async function POST(request: NextRequest) {
     const body = await request.json();
-    const validation=userSchema.safeParse(body);
+    const validation = userSchema.safeParse(body);
     if (!validation.success) {
         return NextResponse.json({ error: validation.error.errors }, { status: 400 });
     }
