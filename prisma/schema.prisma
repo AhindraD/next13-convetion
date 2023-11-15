@@ -11,10 +11,10 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  name      String
-  email     String   @unique
-  followers Int      @default(0)
-  isActive  Boolean  @default(true)
+  id           Int      @id @default(autoincrement())
+  registeredAt DateTime @default(now())
+  name         String
+  email        String   @unique
+  followers    Int      @default(0)
+  isActive     Boolean  @default(true)
 }
