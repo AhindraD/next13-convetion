@@ -22,7 +22,8 @@ const UploadPage = () => {
                 }}
 
                 onUpload={(result, widget) => {
-                    // console.log(result,widget);
+                    // console.log(result,widget);//result object demo in adjacent json file
+                    
                     if (result.event !== "success") { return }
                     const info = result.info as CloudinaryResultInfo;//type assertion
                     setPublicId(info.public_id);
