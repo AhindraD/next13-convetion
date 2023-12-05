@@ -1,0 +1,30 @@
+{
+    "event": "success",
+    "info": {
+        "id": "uw-file3",
+        "batchId": "uw-batch2",
+        "asset_id": "6ecc4e002fb37e1b7426d129e179c7a3",
+        "public_id": "favicon_eopdtb",
+        "version": 1701818674,
+        "version_id": "c6fd4de0c833eec8f52945c6282cd46d",
+        "signature": "ef84bb447a5a5f8e1c060fb88813df5c2ab13b1c",
+        "width": 979,
+        "height": 979,
+        "format": "png",
+        "resource_type": "image",
+        "created_at": "2023-12-05T23:24:34Z",
+        "tags": [],
+        "bytes": 21117,
+        "type": "upload",
+        "etag": "b61a6154054b6bbdaed8b52058f08b8c",
+        "placeholder": false,
+        "url": "http://res.cloudinary.com/dwr8tzrz4/image/upload/v1701818674/favicon_eopdtb.png",
+        "secure_url": "https://res.cloudinary.com/dwr8tzrz4/image/upload/v1701818674/favicon_eopdtb.png",
+        "folder": "",
+        "access_mode": "public",
+        "existing": false,
+        "original_filename": "favicon",
+        "path": "v1701818674/favicon_eopdtb.png",
+        "thumbnail_url": "https://res.cloudinary.com/dwr8tzrz4/image/upload/c_limit,h_60,w_90/v1701818674/favicon_eopdtb.png"
+    }
+}
