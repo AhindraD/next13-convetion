@@ -7,6 +7,7 @@ export default function Home() {
       <h1>Hi Mom & Dad</h1>
       <Link className='btn w-40' href="/user">user-page</Link>
       <Link className='btn w-40' href="/admin">admin-page</Link>
+      <Link className='btn w-40' href="/upload">upload-page</Link>
       <ProductCard />
     </main>
   )
