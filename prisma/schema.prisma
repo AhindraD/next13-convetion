@@ -19,3 +19,10 @@ model User {
   following    Int      @default(0)
   isActive     Boolean  @default(true)
 }
+
+model Product {
+  id           Int      @id @default(autoincrement())
+  registeredAt DateTime @default(now())
+  name         String   @unique
+  price        Float
+}
