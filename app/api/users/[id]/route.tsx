@@ -4,7 +4,7 @@ import prisma from "@/prisma/client";
 
 interface Props {
     params: {
-        id: number
+        id: string
     }
 }
 export async function GET(request: NextRequest, { params: { id } }: Props) {
@@ -30,7 +30,7 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
         return NextResponse.json({ error: validation.error.errors }, { status: 400 })
     }
     //simulate user doesn't exist
-    if (id > 9) {
+    if (!id) {
         return NextResponse.json({ error: "user out of scope" }, { status: 404 })
     }
     return NextResponse.json({ message: "Success", id, name: body.name }, { status: 201 })
@@ -39,7 +39,7 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
 
 export async function DELETE(request: NextRequest, { params: { id } }: Props) {
     //simulate user doesn't exist
-    if (id > 9) {
+    if (!id) {
         return NextResponse.json({ error: "user out of scope" }, { status: 404 })
     }
     return NextResponse.json({ message: `Deleted user with id{id}` }, { status: 200 })
