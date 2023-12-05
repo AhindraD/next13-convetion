@@ -50,16 +50,31 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
             }
         })
         return NextResponse.json(updatedUser, { status: 201 })
-    } catch (err) {
-        return NextResponse.json({ error: err }, { status: 500 })
+    } catch (error) {
+        return NextResponse.json({ error }, { status: 500 })
     }
 }
 
 
 export async function DELETE(request: NextRequest, { params: { id } }: Props) {
     //simulate user doesn't exist
-    if (!id) {
+    const user= await prisma.user.findUnique({
+        where:{
+            id:parseInt(id)
+        }
+    })
+    if (!user) {
         return NextResponse.json({ error: "user out of scope" }, { status: 404 })
     }
-    return NextResponse.json({ message: `Deleted user with id{id}` }, { status: 200 })
+
+    try {
+        await prisma.user.delete({
+            where:{
+                id:parseInt(id)
+            }
+        })
+        return NextResponse.json({ message: `Deleted user with id ${id}` }, { status: 200 })
+    } catch (error) {
+        return NextResponse.json({error},{status:500})
+    }
 }
