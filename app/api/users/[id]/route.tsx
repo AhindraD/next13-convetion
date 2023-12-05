@@ -1,20 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import userSchema from "../schema";
+import prisma from "@/prisma/client";
 
 interface Props {
     params: {
         id: number
     }
 }
-export function GET(request: NextRequest, { params: { id } }: Props) {
-    //simulate user doesn't exist
-    if (id > 9) {
+export async function GET(request: NextRequest, { params: { id } }: Props) {
+    const user = await prisma.user.findUnique({
+        where: {
+            id: Number(id)
+        }
+    })
+    if (!user) {
         return NextResponse.json({ error: "user out of scope" }, { status: 404 })
     }
 
-    return NextResponse.json({
-        id, name: 'Eebbe'
-    }, { status: 200 })
+    return NextResponse.json(user, { status: 200 })
 }
 
 //PUT  -->  update object
