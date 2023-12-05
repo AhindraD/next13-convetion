@@ -14,7 +14,7 @@ export async function GET(request: NextRequest, { params: { id } }: Props) {
         }
     })
     if (!user) {
-        return NextResponse.json({ error: "user out of scope" }, { status: 404 })
+        return NextResponse.json({ error: "user doesn't exist" }, { status: 404 })
     }
 
     return NextResponse.json(user, { status: 200 })
@@ -30,10 +30,29 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
         return NextResponse.json({ error: validation.error.errors }, { status: 400 })
     }
     //simulate user doesn't exist
-    if (!id) {
-        return NextResponse.json({ error: "user out of scope" }, { status: 404 })
+    const user = await prisma.user.findUnique({
+        where: {
+            id: parseInt(id)
+        }
+    })
+    if (!user) {
+        return NextResponse.json({ error: "user does't exist" }, { status: 404 })
     }
-    return NextResponse.json({ message: "Success", id, name: body.name }, { status: 201 })
+
+    try {
+        const updatedUser = await prisma.user.update({
+            where: {
+                id: parseInt(id)
+            },
+            data: {
+                name: body.name,
+                email: body.email
+            }
+        })
+        return NextResponse.json(updatedUser, { status: 201 })
+    } catch (err) {
+        return NextResponse.json({ error: err }, { status: 500 })
+    }
 }
 
 
