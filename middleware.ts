@@ -1,8 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+// import { NextRequest, NextResponse } from "next/server";
+import middleware from "next-auth/middleware";
+// export { default } from "next-auth/middleware";   //to make the middleware export in one line
 
-export function middleware(request: NextRequest) {
-    return NextResponse.redirect(new URL("/404", request.url))
-}
+// export function middleware(request: NextRequest) {
+//     return NextResponse.redirect(new URL("/404", request.url))
+// }
+export default middleware;
 
 export const config = {
     /*
@@ -10,5 +13,5 @@ export const config = {
     + --> one or more parameters
     ? --> zero or one parameters
     */
-    matcher: ["/admin/*"]
+    matcher: ["/dashboard/:path*"]
 }
