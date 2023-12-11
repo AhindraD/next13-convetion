@@ -8,7 +8,7 @@ const NavBar = () => {
     const { status, data: session } = useSession();
 
     return (
-        <nav className='bg-yellow-500 p-2 text-2xl font-semibold text-pink-600 h-14'>
+        <nav className='bg-yellow-400 p-2 text-2xl font-semibold text-pink-600 h-14'>
             <ul className='flex justify-evenly rounded-full m-auto'>
                 <li>
                     <Link href="/">Home</Link>
