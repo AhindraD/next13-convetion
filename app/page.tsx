@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <main className='flex flex-col gap-4'>
       <h1>Hi {session?.user?.name}</h1>
-      <Link className='btn w-40' href="/user">user-page</Link>
+      <Link className='btn w-40' href="/users">user-page</Link>
       <Link className='btn w-40' href="/admin">admin-page</Link>
       <Link className='btn w-40' href="/upload">upload-page</Link>
       <ProductCard />
